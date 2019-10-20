@@ -1,0 +1,17 @@
+{
+  "name": "charles-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Doug Lara",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "botbuilder": "^3.14.1",
+    "restify": "^7.1.1"
+  }
+}
