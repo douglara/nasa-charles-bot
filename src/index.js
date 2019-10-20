@@ -16,8 +16,8 @@ const connector = new builder.ChatConnector({
 
 // Endpoint para executar as mensagens para os usuários
 server.post("/api/messages", connector.listen());
-
-const bot = new builder.UniversalBot(connector);
+var inMemoryStorage = new builder.MemoryBotStorage();
+const bot = new builder.UniversalBot(connector).set('storage', inMemoryStorage); 
 
 
 
