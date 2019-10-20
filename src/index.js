@@ -23,10 +23,13 @@ const bot = new builder.UniversalBot(connector).set('storage', inMemoryStorage);
 
 // Bloco de Dialogs: 
 bot.dialog("/", [session => {
-    builder.Prompts.text(session, "Oi! Para reportar algum incidente digite 1");
+    builder.Prompts.text(session, "Oi. Eu sou o Charles!\n\nMinha missão é ajudar você e sua família a viverem em segurança e o que fazer numa situação de emergência!\n\nPara receber alertas na sua região digite 1\n\nPara cadastrar um alerta digite 2");
  }, (session, results) => {
     let resposta = results.response;
     if (resposta == '1') {
+        session.beginDialog("/reportIssue");
+    }
+    else if (resposta == '2') {
         session.beginDialog("/reportIssue");
     }
     else {
@@ -34,9 +37,20 @@ bot.dialog("/", [session => {
     }
  }]);
  
- bot.dialog("/reportIssue", [session => {
-    builder.Prompts.text(session, "Por favor descreva o que ocorreu");
- }, (session, results) => {
+ bot.dialog("/reportIssue", [session => 
+    {
+    builder.Prompts.text(session, "Por favor envie sua localização");
+    }, (session, results) => {
     let incidente = results.response;
-    session.endDialog(`Obrigado por avisar, incidente registrado com sucesso.`);
- }]);
+    }
+]);
+
+ bot.dialog("/registerAlerts", [session => 
+    {
+    builder.Prompts.text(session, "Digite o nome do seu bairro para cadastro.");
+    }, (session, results) => {
+    let incidente = results.response;
+    session.endDialog(`Obrigado! Qualquer situação de risco nos te avisaremos.`);
+    }
+
+]);
