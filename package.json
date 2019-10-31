@@ -1,18 +1,21 @@
 {
   "name": "charles-bot",
   "version": "1.0.0",
-  "description": "",
-  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/index.js"
+    "dev": "nodemon server.js",
+    "build": "sucrase ./src -d ./dist --transforms imports",
+    "start": "node dist/server.js"
   },
-  "keywords": [],
   "author": "Doug Lara",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.19.0",
     "botbuilder": "^3.14.1",
-    "restify": "^7.1.1"
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4",
+    "sucrase": "^3.10.1"
   }
 }
