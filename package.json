@@ -11,7 +11,7 @@
   "author": "Doug Lara",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "botbuilder": "^3.14.1",
     "restify": "^7.1.1"
   }
